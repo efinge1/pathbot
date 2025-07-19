@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+
+
+  <category>
+    <pattern>START</pattern>
+    <template>
+      Hello! I'm PathBot, your computer science career advisor. What area interests you most?
+      <button>Building software</button>
+      <button>Cybersecurity</button>
+      <button>Game development</button>
+      <button>Network management</button>
+      <button>Working with data</button>
+    </template>
+  </category>
+  <category>
+    <pattern>BUILDING SOFTWARE</pattern>
+    <template>
+      You may thrive as a <b>Software Developer</b>, designing and building applications for all sorts of industries!
+      <br/>Learn more: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank">Software Developer Career Overview</a>
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>CYBERSECURITY</pattern>
+    <template>
+      You could excel as a <b>Cybersecurity Analyst</b>, protecting organizations from digital threats and cyber attacks.
+      <br/>Learn more: <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm" target="_blank">Cybersecurity Analyst Career Overview</a>
+    </template>
+  </category>
+
+  <category>
+    <pattern>GAME DEVELOPMENT</pattern>
+    <template>
+      If you love creativity and tech, consider a future as a <b>Game Developer</b>, designing and building interactive games.
+      <br/>Learn more: <a href="https://money.usnews.com/careers/best-jobs/video-game-designer" target="_blank">Game Developer Career Overview</a>
+    </template>
+  </category>
+
+
+
+  <category>
+    <pattern>NETWORK MANAGEMENT</pattern>
+    <template>
+      You might be a great <b>Network Administrator</b>, managing and securing computer networks for businesses or schools.
+      <br/>Learn more: <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm" target="_blank">Network Administrator Career Overview</a>
+    </template>
+  </category>
+  <category>
+    <pattern>WORKING WITH DATA</pattern>
+    <template>
+      You may enjoy being a <b>Data Analyst</b>, interpreting and analyzing data to help organizations make informed decisions.
+      <br/>Learn more: <a href="https://www.usnews.com/education/learn-data-analysis-guide" target="_blank">Data Analyst Career Overview</a>
+    </template>
+  </category>
+
+  <category>
+    <pattern>*</pattern>
+    <template>
+      Please select an area of interest from the options to see your recommended computer science career.
+      <br/>Type "start" to begin again.
+    </template>
+  </category>
+
+
+<category>
+    <pattern>hi</pattern>
+    <template>Edit bot response</template>
+</category>
+<category>
+    <pattern></pattern>
+    <template></template>
+</category>
 </aiml>
