@@ -1,74 +1,641 @@
 <aiml version="2.0">
 
-
+  <!-- START: Initialize and Begin Personality Quiz -->
   <category>
     <pattern>START</pattern>
     <template>
-      Hello! I'm PathBot, your computer science career advisor. What area interests you most?
-      <button>Building software</button>
-      <button>Cybersecurity</button>
-      <button>Game development</button>
-      <button>Network management</button>
-      <button>Working with data</button>
+      Welcome to PathBot, your career discovery assistant!<br/>
+      Let's begin with a few questions to understand your personality and preferences.<br/>
+      <think>
+        <set name="problem_solver">0</set>
+        <set name="creator">0</set>
+        <set name="visual_thinker">0</set>
+        <set name="analytical">0</set>
+        <set name="technical">0</set>
+        <set name="security">0</set>
+        <set name="question_number">1</set>
+      </think>
+      Question 1: How do you like to solve problems?<br/>
+      A. Logical step-by-step<br/>
+      B. Analyzing data<br/>
+      C. Visualizing ideas<br/>
+      D. Hands-on with tech<br/>
+      E. Preventing or defending
     </template>
   </category>
+
+  <!-- Question 1 Responses -->
   <category>
-    <pattern>BUILDING SOFTWARE</pattern>
+    <pattern>A</pattern>
+    <that>*Question 1*</that>
     <template>
-      You may thrive as a <b>Software Developer</b>, designing and building applications for all sorts of industries!
-      <br/>Learn more: <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank">Software Developer Career Overview</a>
+      <think>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+        <set name="question_number">2</set>
+      </think>
+      Question 2: What type of tasks excite you?<br/>
+      A. Writing code<br/>
+      B. Creating visuals or stories<br/>
+      C. Detecting anomalies<br/>
+      D. Organizing systems<br/>
+      E. Exploring patterns in numbers
     </template>
   </category>
-
 
   <category>
-    <pattern>CYBERSECURITY</pattern>
+    <pattern>B</pattern>
+    <that>*Question 1*</that>
     <template>
-      You could excel as a <b>Cybersecurity Analyst</b>, protecting organizations from digital threats and cyber attacks.
-      <br/>Learn more: <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm" target="_blank">Cybersecurity Analyst Career Overview</a>
+      <think>
+        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">2</set>
+      </think>
+      Question 2: What type of tasks excite you?<br/>
+      A. Writing code<br/>
+      B. Creating visuals or stories<br/>
+      C. Detecting anomalies<br/>
+      D. Organizing systems<br/>
+      E. Exploring patterns in numbers
     </template>
   </category>
 
   <category>
-    <pattern>GAME DEVELOPMENT</pattern>
+    <pattern>C</pattern>
+    <that>*Question 1*</that>
     <template>
-      If you love creativity and tech, consider a future as a <b>Game Developer</b>, designing and building interactive games.
-      <br/>Learn more: <a href="https://money.usnews.com/careers/best-jobs/video-game-designer" target="_blank">Game Developer Career Overview</a>
+      <think>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+        <set name="question_number">2</set>
+      </think>
+      Question 2: What type of tasks excite you?<br/>
+      A. Writing code<br/>
+      B. Creating visuals or stories<br/>
+      C. Detecting anomalies<br/>
+      D. Organizing systems<br/>
+      E. Exploring patterns in numbers
     </template>
   </category>
-
-
 
   <category>
-    <pattern>NETWORK MANAGEMENT</pattern>
+    <pattern>D</pattern>
+    <that>*Question 1*</that>
     <template>
-      You might be a great <b>Network Administrator</b>, managing and securing computer networks for businesses or schools.
-      <br/>Learn more: <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm" target="_blank">Network Administrator Career Overview</a>
-    </template>
-  </category>
-  <category>
-    <pattern>WORKING WITH DATA</pattern>
-    <template>
-      You may enjoy being a <b>Data Analyst</b>, interpreting and analyzing data to help organizations make informed decisions.
-      <br/>Learn more: <a href="https://www.usnews.com/education/learn-data-analysis-guide" target="_blank">Data Analyst Career Overview</a>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 2</eval></set>
+        <set name="question_number">2</set>
+      </think>
+      Question 2: What type of tasks excite you?<br/>
+      A. Writing code<br/>
+      B. Creating visuals or stories<br/>
+      C. Detecting anomalies<br/>
+      D. Organizing systems<br/>
+      E. Exploring patterns in numbers
     </template>
   </category>
 
+  <category>
+    <pattern>E</pattern>
+    <that>*Question 1*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">2</set>
+      </think>
+      Question 2: What type of tasks excite you?<br/>
+      A. Writing code<br/>
+      B. Creating visuals or stories<br/>
+      C. Detecting anomalies<br/>
+      D. Organizing systems<br/>
+      E. Exploring patterns in numbers
+    </template>
+  </category>
+
+  <!-- Add more questions/responses here... -->
+
+  <!-- Fallback -->
   <category>
     <pattern>*</pattern>
     <template>
-      Please select an area of interest from the options to see your recommended computer science career.
-      <br/>Type "start" to begin again.
+      I'm sorry, I didn't understand that. Please try again or type "start" to begin the quiz.
     </template>
   </category>
 
 
-<category>
-    <pattern>hi</pattern>
-    <template>Edit bot response</template>
-</category>
-<category>
-    <pattern></pattern>
-    <template></template>
-</category>
+
+  <!-- Question 2 Responses -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 2*</that>
+    <template>
+      <think>
+        <set name="creator"><eval><get name="creator"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">3</set>
+      </think>
+      Question 3: What environment do you prefer working in?<br/>
+      A. Quiet, solo workspace<br/>
+      B. Creative collaboration<br/>
+      C. Fast-paced and ever-changing<br/>
+      D. Technical settings with machines<br/>
+      E. Structured, data-driven environment
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 2*</that>
+    <template>
+      <think>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+        <set name="question_number">3</set>
+      </think>
+      Question 3: What environment do you prefer working in?<br/>
+      A. Quiet, solo workspace<br/>
+      B. Creative collaboration<br/>
+      C. Fast-paced and ever-changing<br/>
+      D. Technical settings with machines<br/>
+      E. Structured, data-driven environment
+    </template>
+  </category>
+
+  <category>
+    <pattern>C</pattern>
+    <that>*Question 2*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">3</set>
+      </think>
+      Question 3: What environment do you prefer working in?<br/>
+      A. Quiet, solo workspace<br/>
+      B. Creative collaboration<br/>
+      C. Fast-paced and ever-changing<br/>
+      D. Technical settings with machines<br/>
+      E. Structured, data-driven environment
+    </template>
+  </category>
+
+  <category>
+    <pattern>D</pattern>
+    <that>*Question 2*</that>
+    <template>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">3</set>
+      </think>
+      Question 3: What environment do you prefer working in?<br/>
+      A. Quiet, solo workspace<br/>
+      B. Creative collaboration<br/>
+      C. Fast-paced and ever-changing<br/>
+      D. Technical settings with machines<br/>
+      E. Structured, data-driven environment
+    </template>
+  </category>
+
+  <category>
+    <pattern>E</pattern>
+    <that>*Question 2*</that>
+    <template>
+      <think>
+        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 1</eval></set>
+        <set name="question_number">3</set>
+      </think>
+      Question 3: What environment do you prefer working in?<br/>
+      A. Quiet, solo workspace<br/>
+      B. Creative collaboration<br/>
+      C. Fast-paced and ever-changing<br/>
+      D. Technical settings with machines<br/>
+      E. Structured, data-driven environment
+    </template>
+  </category>
+
+  <!-- Final answer evaluation (placeholder condition logic) -->
+  <category>
+    <pattern>RESULTS</pattern>
+    <template>
+      Let’s see where your strengths align...<br/>
+      <condition name="problem_solver">
+        <value>5</value>
+        You may thrive as a <b>Software Developer</b> — creative coding and logic combined!<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">Learn more</a>
+      </condition>
+      <condition name="security">
+        <value>5</value>
+        You may thrive as a <b>Cybersecurity Analyst</b> — protect systems and stop threats!<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm">Learn more</a>
+      </condition>
+      <condition name="visual_thinker">
+        <value>5</value>
+        You may thrive as a <b>Game Developer</b> — blend imagination and code!<br/>
+        <a href="https://money.usnews.com/careers/best-jobs/video-game-designer">Learn more</a>
+      </condition>
+      <condition name="technical">
+        <value>5</value>
+        You may thrive as a <b>Network Administrator</b> — hands-on, technical, and vital!<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm">Learn more</a>
+      </condition>
+      <condition name="analytical">
+        <value>5</value>
+        You may thrive as a <b>Data Analyst</b> — make decisions through insight!<br/>
+        <a href="https://www.usnews.com/education/learn-data-analysis-guide">Learn more</a>
+      </condition>
+    </template>
+  </category>
+
+  <!-- Question 3 Responses -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 3*</that>
+    <template>
+      <think>
+        <set name="analytical"><eval><get name="analytical"/> + 1</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 2</eval></set>
+        <set name="question_number">4</set>
+      </think>
+      Question 4: Do you prefer working with abstract logic or physical systems?<br/>
+      A. Abstract logic<br/>
+      B. Physical systems
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 3*</that>
+    <template>
+      <think>
+        <set name="creator"><eval><get name="creator"/> + 2</eval></set>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 1</eval></set>
+        <set name="question_number">4</set>
+      </think>
+      Question 4: Do you prefer working with abstract logic or physical systems?<br/>
+      A. Abstract logic<br/>
+      B. Physical systems
+    </template>
+  </category>
+
+  <category>
+    <pattern>C</pattern>
+    <that>*Question 3*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">4</set>
+      </think>
+      Question 4: Do you prefer working with abstract logic or physical systems?<br/>
+      A. Abstract logic<br/>
+      B. Physical systems
+    </template>
+  </category>
+
+  <category>
+    <pattern>D</pattern>
+    <that>*Question 3*</that>
+    <template>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+        <set name="question_number">4</set>
+      </think>
+      Question 4: Do you prefer working with abstract logic or physical systems?<br/>
+      A. Abstract logic<br/>
+      B. Physical systems
+    </template>
+  </category>
+
+  <category>
+    <pattern>E</pattern>
+    <that>*Question 3*</that>
+    <template>
+      <think>
+        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 1</eval></set>
+        <set name="question_number">4</set>
+      </think>
+      Question 4: Do you prefer working with abstract logic or physical systems?<br/>
+      A. Abstract logic<br/>
+      B. Physical systems
+    </template>
+  </category>
+
+  <!-- Q4 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 4*</that>
+    <template>
+      <think>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 2</eval></set>
+        <set name="analytical"><eval><get name="analytical"/> + 1</eval></set>
+        <set name="question_number">5</set>
+      </think>
+      Question 5: Which sounds more fun?<br/>
+      A. Designing a game level<br/>
+      B. Writing scripts to clean data<br/>
+      C. Installing and configuring a secure network
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 4*</that>
+    <template>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 2</eval></set>
+        <set name="security"><eval><get name="security"/> + 1</eval></set>
+        <set name="question_number">5</set>
+      </think>
+      Question 5: Which sounds more fun?<br/>
+      A. Designing a game level<br/>
+      B. Writing scripts to clean data<br/>
+      C. Installing and configuring a secure network
+    </template>
+  </category>
+
+  <!-- Q5 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 5*</that>
+    <template>
+      <think>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+        <set name="question_number">6</set>
+      </think>
+      Question 6: Do you enjoy defending against challenges?<br/>
+      A. Yes<br/>
+      B. No
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 5*</that>
+    <template>
+      <think>
+        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">6</set>
+      </think>
+      Question 6: Do you enjoy defending against challenges?<br/>
+      A. Yes<br/>
+      B. No
+    </template>
+  </category>
+
+  <category>
+    <pattern>C</pattern>
+    <that>*Question 5*</that>
+    <template>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 1</eval></set>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="question_number">6</set>
+      </think>
+      Question 6: Do you enjoy defending against challenges?<br/>
+      A. Yes<br/>
+      B. No
+    </template>
+  </category>
+
+  <!-- Q6 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 6*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">7</set>
+      </think>
+      Question 7: Which do you prefer?<br/>
+      A. Telling a story visually<br/>
+      B. Diagnosing a system failure
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 6*</that>
+    <template>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 2</eval></set>
+        <set name="analytical"><eval><get name="analytical"/> + 1</eval></set>
+        <set name="question_number">7</set>
+      </think>
+      Question 7: Which do you prefer?<br/>
+      A. Telling a story visually<br/>
+      B. Diagnosing a system failure
+    </template>
+  </category>
+
+  <!-- Q7 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 7*</that>
+    <template>
+      <think>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+        <set name="question_number">8</set>
+      </think>
+      Question 8: Do you like experimenting with code?<br/>
+      A. Yes<br/>
+      B. No
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 7*</that>
+    <template>
+      <think>
+        <set name="technical"><eval><get name="technical"/> + 2</eval></set>
+        <set name="security"><eval><get name="security"/> + 1</eval></set>
+        <set name="question_number">8</set>
+      </think>
+      Question 8: Do you like experimenting with code?<br/>
+      A. Yes<br/>
+      B. No
+    </template>
+  </category>
+
+  <!-- Q8 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 8*</that>
+    <template>
+      <think>
+        <set name="creator"><eval><get name="creator"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 2</eval></set>
+        <set name="question_number">9</set>
+      </think>
+      Question 9: Would you rather:<br/>
+      A. Solve a math problem<br/>
+      B. Secure a network
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 8*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="technical"><eval><get name="technical"/> + 1</eval></set>
+        <set name="question_number">9</set>
+      </think>
+      Question 9: Would you rather:<br/>
+      A. Solve a math problem<br/>
+      B. Secure a network
+    </template>
+  </category>
+
+  <!-- Q9 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 9*</that>
+    <template>
+      <think>
+        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+        <set name="question_number">10</set>
+      </think>
+      Question 10: Are you more drawn to<br/>
+      A. Investigating threats<br/>
+      B. Designing user experience
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 9*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="technical"><eval><get name="technical"/> + 1</eval></set>
+        <set name="question_number">10</set>
+      </think>
+      Question 10: Are you more drawn to<br/>
+      A. Investigating threats<br/>
+      B. Designing user experience
+    </template>
+  </category>
+
+  <!-- Q10 Answers -->
+  <category>
+    <pattern>A</pattern>
+    <that>*Question 10*</that>
+    <template>
+      <think>
+        <set name="security"><eval><get name="security"/> + 2</eval></set>
+        <set name="problem_solver"><eval><get name="problem_solver"/> + 1</eval></set>
+      </think>
+      Type "results" to see your career recommendation!
+    </template>
+  </category>
+
+  <category>
+    <pattern>B</pattern>
+    <that>*Question 10*</that>
+    <template>
+      <think>
+        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 2</eval></set>
+        <set name="creator"><eval><get name="creator"/> + 1</eval></set>
+      </think>
+      Type "results" to see your career recommendation!
+    </template>
+  </category>
+
+
+  <!-- RESULTS evaluation based on highest trait score -->
+  <category>
+    <pattern>RESULTS</pattern>
+    <template>
+      <think>
+        <set name="max">0</set>
+        <set name="career">Undetermined</set>
+        <condition name="problem_solver">
+          <value><get name="problem_solver"/></value>
+          <think>
+            <set name="max"><get name="problem_solver"/></set>
+            <set name="career">Software Developer</set>
+          </think>
+        </condition>
+        <condition name="security">
+          <value><get name="security"/></value>
+          <think>
+            <condition name="security">
+              <value><eval><get name="security"/> &gt; <get name="max"/></eval></value>
+              <set name="max"><get name="security"/></set>
+              <set name="career">Cybersecurity Analyst</set>
+            </condition>
+          </think>
+        </condition>
+        <condition name="visual_thinker">
+          <value><get name="visual_thinker"/></value>
+          <think>
+            <condition name="visual_thinker">
+              <value><eval><get name="visual_thinker"/> &gt; <get name="max"/></eval></value>
+              <set name="max"><get name="visual_thinker"/></set>
+              <set name="career">Game Developer</set>
+            </condition>
+          </think>
+        </condition>
+        <condition name="technical">
+          <value><get name="technical"/></value>
+          <think>
+            <condition name="technical">
+              <value><eval><get name="technical"/> &gt; <get name="max"/></eval></value>
+              <set name="max"><get name="technical"/></set>
+              <set name="career">Network Administrator</set>
+            </condition>
+          </think>
+        </condition>
+        <condition name="analytical">
+          <value><get name="analytical"/></value>
+          <think>
+            <condition name="analytical">
+              <value><eval><get name="analytical"/> &gt; <get name="max"/></eval></value>
+              <set name="max"><get name="analytical"/></set>
+              <set name="career">Data Analyst</set>
+            </condition>
+          </think>
+        </condition>
+      </think>
+
+      Based on your responses, your ideal career path is: <b><get name="career"/></b><br/>
+
+      <condition name="career" value="Software Developer">
+        Software Developers use logic and creativity to build apps and systems.<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">Learn more</a>
+      </condition>
+      <condition name="career" value="Cybersecurity Analyst">
+        Cybersecurity Analysts protect systems and respond to threats.<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm">Learn more</a>
+      </condition>
+      <condition name="career" value="Game Developer">
+        Game Developers design immersive and interactive digital experiences.<br/>
+        <a href="https://money.usnews.com/careers/best-jobs/video-game-designer">Learn more</a>
+      </condition>
+      <condition name="career" value="Network Administrator">
+        Network Administrators maintain and secure network infrastructure.<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm">Learn more</a>
+      </condition>
+      <condition name="career" value="Data Analyst">
+        Data Analysts turn numbers into decisions using logic and insight.<br/>
+        <a href="https://www.usnews.com/education/learn-data-analysis-guide">Learn more</a>
+      </condition>
+    </template>
+  </category>
+
 </aiml>
+
+
