@@ -1181,34 +1181,3 @@
       E. Exploring patterns in numbers
     </template>
   </category>
-<category>
-    <pattern>e</pattern>
-    <that>*Question 2*</that>
-    <template>
-      <think>
-        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
-        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 1</eval></set>
-        <set name="question_number">3</set>
-      </think>
-      Question 3: What environment do you prefer working in?<br/>
-      A. Quiet, solo workspace<br/>
-      B. Creative collaboration<br/>
-      C. Fast-paced and ever-changing<br/>
-      D. Technical settings with machines<br/>
-      E. Structured, data-driven environment
-    </template>
-  </category>
-<category>
-    <pattern>e</pattern>
-    <that>*Question 3*</that>
-    <template>
-      <think>
-        <set name="analytical"><eval><get name="analytical"/> + 2</eval></set>
-        <set name="visual_thinker"><eval><get name="visual_thinker"/> + 1</eval></set>
-        <set name="question_number">4</set>
-      </think>
-      Question 4: Do you prefer working with abstract logic or physical systems?<br/>
-      A. Abstract logic<br/>
-      B. Physical systems
-    </template>
-  </category>
