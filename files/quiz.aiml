@@ -1,4 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+
+<!-- START -->
+<category>
+  <pattern>START</pattern>
+  <template>
+    Welcome to PathBot!<br/>
+    Let's find a computing career that fits you.<br/>
+    Question 1: What kind of activity do you most enjoy?<br/>
+    A. Solving coding challenges<br/>
+    B. Detecting and preventing threats<br/>
+    C. Creating stories, art, or games<br/>
+    D. Working with hardware and connections<br/>
+    E. Analyzing data and trends<br/>
+    <br/>Please answer with: 1A, 1B, 1C, 1D, or 1E
+  </template>
+</category>
+
+<!-- Question 1 Options -->
+<category><pattern>1A</pattern><template>
+  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
+  A. A quiet place to focus and code<br/>
+  B. A fast-paced, high-security center<br/>
+  C. A collaborative game studio<br/>
+  D. A server room or networking hub<br/>
+  E. A data science or analytics lab<br/>
+  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+</template></category>
+
+<category><pattern>1B</pattern><template>
+  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
+  A. A quiet place to focus and code<br/>
+  B. A fast-paced, high-security center<br/>
+  C. A collaborative game studio<br/>
+  D. A server room or networking hub<br/>
+  E. A data science or analytics lab<br/>
+  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+</template></category>
+
+<category><pattern>1C</pattern><template>
+  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
+  A. A quiet place to focus and code<br/>
+  B. A fast-paced, high-security center<br/>
+  C. A collaborative game studio<br/>
+  D. A server room or networking hub<br/>
+  E. A data science or analytics lab<br/>
+  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+</template></category>
+
+<category><pattern>1D</pattern><template>
+  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
+  A. A quiet place to focus and code<br/>
+  B. A fast-paced, high-security center<br/>
+  C. A collaborative game studio<br/>
+  D. A server room or networking hub<br/>
+  E. A data science or analytics lab<br/>
+  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+</template></category>
+
+<category><pattern>1E</pattern><template>
+  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
+  A. A quiet place to focus and code<br/>
+  B. A fast-paced, high-security center<br/>
+  C. A collaborative game studio<br/>
+  D. A server room or networking hub<br/>
+  E. A data science or analytics lab<br/>
+  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+</template></category>
+
+<!-- Question 2 Options -->
+<category><pattern>2A</pattern><template>
+  Final question!<br/>Which of these sounds most interesting?<br/>
+  A. Building mobile or web apps<br/>
+  B. Monitoring for cyber attacks<br/>
+  C. Designing interactive visuals<br/>
+  D. Configuring network tools<br/>
+  E. Creating dashboards and reports<br/>
+  <br/>Please answer with: 3A, 3B, 3C, 3D, or 3E
+</template></category>
+
+<category><pattern>2B</pattern><template><srai>2A</srai></template></category>
+<category><pattern>2C</pattern><template><srai>2A</srai></template></category>
+<category><pattern>2D</pattern><template><srai>2A</srai></template></category>
+<category><pattern>2E</pattern><template><srai>2A</srai></template></category>
+
+<!-- Question 3 to Career Mapping -->
+<category><pattern>3A</pattern><template>
+  You may thrive as a <b>Software Developer</b> — build software that solves problems!<br/>
+  <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">Learn more</a>
+</template></category>
+
+<category><pattern>3B</pattern><template>
+  You may thrive as a <b>Cybersecurity Analyst</b> — protect systems and investigate threats!<br/>
+  <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm">Learn more</a>
+</template></category>
+
+<category><pattern>3C</pattern><template>
+  You may thrive as a <b>Game Developer</b> — bring stories and interaction to life!<br/>
+  <a href="https://money.usnews.com/careers/best-jobs/video-game-designer">Learn more</a>
+</template></category>
+
+<category><pattern>3D</pattern><template>
+  You may thrive as a <b>Network Administrator</b> — hands-on with hardware and systems!<br/>
+  <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm">Learn more</a>
+</template></category>
+
+<category><pattern>3E</pattern><template>
+  You may thrive as a <b>Data Analyst</b> — uncover insights and support decisions!<br/>
+  <a href="https://www.usnews.com/education/learn-data-analysis-guide">Learn more</a>
+</template></category>
+
+<!-- Fallback -->
+<category>
+  <pattern>*</pattern>
+  <template>
+    I'm sorry, I didn't understand that.<br/>
+    Type "start" to begin the quiz again.
+  </template>
+</category>
+
 </aiml>
