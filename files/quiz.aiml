@@ -5,117 +5,319 @@
 <category>
   <pattern>START</pattern>
   <template>
-    Welcome to PathBot!<br/>
-    Let's find a computing career that fits you.<br/>
-    Question 1: What kind of activity do you most enjoy?<br/>
-    A. Solving coding challenges<br/>
-    B. Detecting and preventing threats<br/>
-    C. Creating stories, art, or games<br/>
-    D. Working with hardware and connections<br/>
-    E. Analyzing data and trends<br/>
-    <br/>Please answer with: 1A, 1B, 1C, 1D, or 1E
+    Welcome to PathBot! Let's learn more about your strengths.<br/>
+    Question 1: What kind of activity do you enjoy most?<br/>
+    A. Solving technical puzzles<br/>
+    B. Preventing or detecting problems<br/>
+    C. Creating visual or interactive projects<br/>
+    D. Working with devices and infrastructure<br/>
+    E. Spotting trends in data<br/>
+    <br/>Please respond with: 1A, 1B, 1C, 1D, or 1E
+    <think>
+      <set name="software">0</set>
+      <set name="security">0</set>
+      <set name="game">0</set>
+      <set name="network">0</set>
+      <set name="data">0</set>
+    </think>
   </template>
 </category>
 
-<!-- Question 1 Options -->
-<category><pattern>1A</pattern><template>
-  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
-  A. A quiet place to focus and code<br/>
-  B. A fast-paced, high-security center<br/>
-  C. A collaborative game studio<br/>
-  D. A server room or networking hub<br/>
-  E. A data science or analytics lab<br/>
-  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-</template></category>
+<category>
+  <pattern>1A</pattern>
+  <template>
+    <think>
+      <set name="software"><eval><get name="software"/> + 2</eval></set>
+<set name="data"><eval><get name="data"/> + 1</eval></set>
+    </think>
+    Question 2: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>1B</pattern><template>
-  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
-  A. A quiet place to focus and code<br/>
-  B. A fast-paced, high-security center<br/>
-  C. A collaborative game studio<br/>
-  D. A server room or networking hub<br/>
-  E. A data science or analytics lab<br/>
-  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-</template></category>
+<category>
+  <pattern>1B</pattern>
+  <template>
+    <think>
+      <set name="security"><eval><get name="security"/> + 2</eval></set>
+<set name="network"><eval><get name="network"/> + 1</eval></set>
+    </think>
+    Question 2: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>1C</pattern><template>
-  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
-  A. A quiet place to focus and code<br/>
-  B. A fast-paced, high-security center<br/>
-  C. A collaborative game studio<br/>
-  D. A server room or networking hub<br/>
-  E. A data science or analytics lab<br/>
-  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-</template></category>
+<category>
+  <pattern>1C</pattern>
+  <template>
+    <think>
+      <set name="game"><eval><get name="game"/> + 2</eval></set>
+<set name="software"><eval><get name="software"/> + 1</eval></set>
+    </think>
+    Question 2: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>1D</pattern><template>
-  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
-  A. A quiet place to focus and code<br/>
-  B. A fast-paced, high-security center<br/>
-  C. A collaborative game studio<br/>
-  D. A server room or networking hub<br/>
-  E. A data science or analytics lab<br/>
-  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-</template></category>
+<category>
+  <pattern>1D</pattern>
+  <template>
+    <think>
+      <set name="network"><eval><get name="network"/> + 2</eval></set>
+<set name="security"><eval><get name="security"/> + 1</eval></set>
+    </think>
+    Question 2: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>1E</pattern><template>
-  Great!<br/>Question 2: Which environment sounds most enjoyable to you?<br/>
-  A. A quiet place to focus and code<br/>
-  B. A fast-paced, high-security center<br/>
-  C. A collaborative game studio<br/>
-  D. A server room or networking hub<br/>
-  E. A data science or analytics lab<br/>
-  <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-</template></category>
+<category>
+  <pattern>1E</pattern>
+  <template>
+    <think>
+      <set name="data"><eval><get name="data"/> + 2</eval></set>
+<set name="software"><eval><get name="software"/> + 1</eval></set>
+    </think>
+    Question 2: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<!-- Question 2 Options -->
-<category><pattern>2A</pattern><template>
-  Final question!<br/>Which of these sounds most interesting?<br/>
-  A. Building mobile or web apps<br/>
-  B. Monitoring for cyber attacks<br/>
-  C. Designing interactive visuals<br/>
-  D. Configuring network tools<br/>
-  E. Creating dashboards and reports<br/>
-  <br/>Please answer with: 3A, 3B, 3C, 3D, or 3E
-</template></category>
+<category>
+  <pattern>2A</pattern>
+  <template>
+    <think>
+      <set name="software"><eval><get name="software"/> + 2</eval></set>
+<set name="game"><eval><get name="game"/> + 1</eval></set>
+    </think>
+    Question 3: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>2B</pattern><template><srai>2A</srai></template></category>
-<category><pattern>2C</pattern><template><srai>2A</srai></template></category>
-<category><pattern>2D</pattern><template><srai>2A</srai></template></category>
-<category><pattern>2E</pattern><template><srai>2A</srai></template></category>
+<category>
+  <pattern>2B</pattern>
+  <template>
+    <think>
+      <set name="security"><eval><get name="security"/> + 2</eval></set>
+    </think>
+    Question 3: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<!-- Question 3 to Career Mapping -->
-<category><pattern>3A</pattern><template>
-  You may thrive as a <b>Software Developer</b> — build software that solves problems!<br/>
-  <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">Learn more</a>
-</template></category>
+<category>
+  <pattern>2C</pattern>
+  <template>
+    <think>
+      <set name="game"><eval><get name="game"/> + 2</eval></set>
+    </think>
+    Question 3: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>3B</pattern><template>
-  You may thrive as a <b>Cybersecurity Analyst</b> — protect systems and investigate threats!<br/>
-  <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm">Learn more</a>
-</template></category>
+<category>
+  <pattern>2D</pattern>
+  <template>
+    <think>
+      <set name="network"><eval><get name="network"/> + 2</eval></set>
+    </think>
+    Question 3: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>3C</pattern><template>
-  You may thrive as a <b>Game Developer</b> — bring stories and interaction to life!<br/>
-  <a href="https://money.usnews.com/careers/best-jobs/video-game-designer">Learn more</a>
-</template></category>
+<category>
+  <pattern>2E</pattern>
+  <template>
+    <think>
+      <set name="data"><eval><get name="data"/> + 2</eval></set>
+    </think>
+    Question 3: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>3D</pattern><template>
-  You may thrive as a <b>Network Administrator</b> — hands-on with hardware and systems!<br/>
-  <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm">Learn more</a>
-</template></category>
+<category>
+  <pattern>3A</pattern>
+  <template>
+    <think>
+      <set name="software"><eval><get name="software"/> + 2</eval></set>
+<set name="data"><eval><get name="data"/> + 1</eval></set>
+    </think>
+    Question 4: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<category><pattern>3E</pattern><template>
-  You may thrive as a <b>Data Analyst</b> — uncover insights and support decisions!<br/>
-  <a href="https://www.usnews.com/education/learn-data-analysis-guide">Learn more</a>
-</template></category>
+<category>
+  <pattern>3B</pattern>
+  <template>
+    <think>
+      <set name="security"><eval><get name="security"/> + 2</eval></set>
+    </think>
+    Question 4: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
 
-<!-- Fallback -->
+<category>
+  <pattern>3C</pattern>
+  <template>
+    <think>
+      <set name="game"><eval><get name="game"/> + 2</eval></set>
+<set name="software"><eval><get name="software"/> + 1</eval></set>
+    </think>
+    Question 4: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>3D</pattern>
+  <template>
+    <think>
+      <set name="network"><eval><get name="network"/> + 2</eval></set>
+    </think>
+    Question 4: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>3E</pattern>
+  <template>
+    <think>
+      <set name="data"><eval><get name="data"/> + 2</eval></set>
+<set name="software"><eval><get name="software"/> + 1</eval></set>
+    </think>
+    Question 4: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>4A</pattern>
+  <template>
+    <think>
+      <set name="game"><eval><get name="game"/> + 2</eval></set>
+    </think>
+    Question 5: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>4B</pattern>
+  <template>
+    <think>
+      <set name="data"><eval><get name="data"/> + 2</eval></set>
+    </think>
+    Question 5: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>4C</pattern>
+  <template>
+    <think>
+      <set name="security"><eval><get name="security"/> + 2</eval></set>
+    </think>
+    Question 5: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>4D</pattern>
+  <template>
+    <think>
+      <set name="network"><eval><get name="network"/> + 2</eval></set>
+    </think>
+    Question 5: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>4E</pattern>
+  <template>
+    <think>
+      <set name="software"><eval><get name="software"/> + 2</eval></set>
+    </think>
+    Question 5: Choose the best fit<br/>A. ...<br/>B. ...<br/>C. ...<br/>D. ...<br/>E. ...
+  </template>
+</category>
+
+<category>
+  <pattern>5A</pattern>
+  <template>
+    <think>
+      <set name="software"><eval><get name="software"/> + 2</eval></set>
+    </think>
+    Type "results" to see your recommendation.
+  </template>
+</category>
+
+<category>
+  <pattern>5B</pattern>
+  <template>
+    <think>
+      <set name="security"><eval><get name="security"/> + 2</eval></set>
+    </think>
+    Type "results" to see your recommendation.
+  </template>
+</category>
+
+<category>
+  <pattern>5C</pattern>
+  <template>
+    <think>
+      <set name="game"><eval><get name="game"/> + 2</eval></set>
+    </think>
+    Type "results" to see your recommendation.
+  </template>
+</category>
+
+<category>
+  <pattern>5D</pattern>
+  <template>
+    <think>
+      <set name="network"><eval><get name="network"/> + 2</eval></set>
+    </think>
+    Type "results" to see your recommendation.
+  </template>
+</category>
+
+<category>
+  <pattern>5E</pattern>
+  <template>
+    <think>
+      <set name="data"><eval><get name="data"/> + 2</eval></set>
+    </think>
+    Type "results" to see your recommendation.
+  </template>
+</category>
+
+<category>
+  <pattern>RESULTS</pattern>
+  <template>
+    Let's see what path fits you best...<br/>
+    <condition name="software">
+      <value>5</value>
+        You may thrive as a <b>Software Developer</b> — creative coding and problem-solving!<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">Learn more</a><br/>
+    </condition>
+    <condition name="security">
+      <value>5</value>
+        You may thrive as a <b>Cybersecurity Analyst</b> — defender of systems!<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm">Learn more</a><br/>
+    </condition>
+    <condition name="game">
+      <value>5</value>
+        You may thrive as a <b>Game Developer</b> — creative storytelling through code!<br/>
+        <a href="https://money.usnews.com/careers/best-jobs/video-game-designer">Learn more</a><br/>
+    </condition>
+    <condition name="network">
+      <value>5</value>
+        You may thrive as a <b>Network Administrator</b> — managing infrastructure hands-on!<br/>
+        <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm">Learn more</a><br/>
+    </condition>
+    <condition name="data">
+      <value>5</value>
+        You may thrive as a <b>Data Analyst</b> — turning data into decisions!<br/>
+        <a href="https://www.usnews.com/education/learn-data-analysis-guide">Learn more</a><br/>
+    </condition>
+  </template>
+</category>
+
 <category>
   <pattern>*</pattern>
   <template>
-    I'm sorry, I didn't understand that.<br/>
-    Type "start" to begin the quiz again.
+    I didn’t understand. Type START to begin or respond with A/B/C/D/E.
   </template>
 </category>
 
