@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
-<!-- Start the quiz -->
 <category>
   <pattern>START</pattern>
   <template>
@@ -11,128 +10,504 @@
     1B. Preventing or detecting problems<br/>
     1C. Creating visual experiences or games<br/>
     1D. Working with devices and infrastructure<br/>
-    1E. Spotting patterns in data<br/>
-    <br/>Please answer with: 1A, 1B, 1C, 1D, or 1E
-  </template>
-</category>
-
-<category>
-  <pattern>1A</pattern>
-  <template>
-    Question 2: What excites you the most?<br/>
-    2A. Building apps or tools<br/>
-    2B. Defending systems<br/>
-    2C. Designing game levels<br/>
-    2D. Setting up networks<br/>
-    2E. Analyzing trends<br/>
-    <think><set name="career">software</set></think>
-    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-  </template>
-</category>
-
-<category>
-  <pattern>1B</pattern>
-  <template>
-    Question 2: What excites you the most?<br/>
-    2A. Building apps or tools<br/>
-    2B. Defending systems<br/>
-    2C. Designing game levels<br/>
-    2D. Setting up networks<br/>
-    2E. Analyzing trends<br/>
-    <think><set name="career">security</set></think>
-    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-  </template>
-</category>
-
-<category>
-  <pattern>1C</pattern>
-  <template>
-    Question 2: What excites you the most?<br/>
-    2A. Building apps or tools<br/>
-    2B. Defending systems<br/>
-    2C. Designing game levels<br/>
-    2D. Setting up networks<br/>
-    2E. Analyzing trends<br/>
-    <think><set name="career">game</set></think>
-    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-  </template>
-</category>
-
-<category>
-  <pattern>1D</pattern>
-  <template>
-    Question 2: What excites you the most?<br/>
-    2A. Building apps or tools<br/>
-    2B. Defending systems<br/>
-    2C. Designing game levels<br/>
-    2D. Setting up networks<br/>
-    2E. Analyzing trends<br/>
-    <think><set name="career">network</set></think>
-    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-  </template>
-</category>
-
-<category>
-  <pattern>1E</pattern>
-  <template>
-    Question 2: What excites you the most?<br/>
-    2A. Building apps or tools<br/>
-    2B. Defending systems<br/>
-    2C. Designing game levels<br/>
-    2D. Setting up networks<br/>
-    2E. Analyzing trends<br/>
-    <think><set name="career">data</set></think>
-    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
-  </template>
-</category>
-
-<category>
-  <pattern>2A</pattern>
-  <template>
-    Thanks for your answers! Type <b>career</b> to see your recommended path.
-  </template>
-</category>
-
-<category>
-  <pattern>2B</pattern>
-  <template>
-    Thanks for your answers! Type <b>career</b> to see your recommended path.
-  </template>
-</category>
-
-<category>
-  <pattern>2C</pattern>
-  <template>
-    Thanks for your answers! Type <b>career</b> to see your recommended path.
-  </template>
-</category>
-
-<category>
-  <pattern>2D</pattern>
-  <template>
-    Thanks for your answers! Type <b>career</b> to see your recommended path.
-  </template>
-</category>
-
-<category>
-  <pattern>2E</pattern>
-  <template>
-    Thanks for your answers! Type <b>career</b> to see your recommended path.
+    1E. Spotting patterns in data<br/><br/>
+    Please answer with: 1A–1E
+    <think>
+      <set name="software_score">0</set>
+      <set name="security_score">0</set>
+      <set name="game_score">0</set>
+      <set name="network_score">0</set>
+      <set name="data_score">0</set>
+      <set name="top_score">0</set>
+      <set name="max_career">none</set>
+    </think>
   </template>
 </category>
 
 <category>
   <pattern>CAREER</pattern>
   <template>
-    <condition name="career">
-      <li value="software"><srai>SOFTWARE DEVELOPER</srai></li>
-      <li value="security"><srai>CYBERSECURITY ANALYST</srai></li>
-      <li value="game"><srai>GAME DEVELOPER</srai></li>
-      <li value="network"><srai>NETWORK ADMINISTRATOR</srai></li>
-      <li value="data"><srai>DATA ANALYST</srai></li>
+    You scored:<br/>
+    Software Developer: <get name="software_score"/><br/>
+    Cybersecurity Analyst: <get name="security_score"/><br/>
+    Game Developer: <get name="game_score"/><br/>
+    Network Administrator: <get name="network_score"/><br/>
+    Data Analyst: <get name="data_score"/><br/><br/>
+    Great match! Based on your answers, you may thrive as a:<br/>
+    <condition name="max_career">
+      <li value="software">Software Developer<br/><a href="https://www.google.com/search?q=Software+Developer">Learn more</a></li>
+      <li value="security">Cybersecurity Analyst<br/><a href="https://www.google.com/search?q=Cybersecurity+Analyst">Learn more</a></li>
+      <li value="game">Game Developer<br/><a href="https://www.google.com/search?q=Game+Developer">Learn more</a></li>
+      <li value="network">Network Administrator<br/><a href="https://www.google.com/search?q=Network+Administrator">Learn more</a></li>
+      <li value="data">Data Analyst<br/><a href="https://www.google.com/search?q=Data+Analyst">Learn more</a></li>
+      <li>Sorry, something went wrong. Please type "start" to try again.</li>
     </condition>
   </template>
 </category>
+
+
+
+<!-- Define each answer category with scoring logic -->
+
+<category>
+  <pattern>1A</pattern>
+  <template>
+    <think>
+      <set name="software_score"><eval><get name="software_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="software_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="software_score"/></set>
+          <set name="max_career">software</set>
+        </li>
+      </condition>
+    </think>
+    Question 2: What's your preferred work style?<br/>2A. Solo and focused<br/>2B. Alert and responsive<br/>2C. Creative and visual<br/>2D. Hands-on technical<br/>2E. Analytical and structured<br/><br/>Please answer with: 2A–2E
+  </template>
+</category>
+
+<category>
+  <pattern>1B</pattern>
+  <template>
+    <think>
+      <set name="security_score"><eval><get name="security_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="security_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="security_score"/></set>
+          <set name="max_career">security</set>
+        </li>
+      </condition>
+    </think>
+    Question 2: What's your preferred work style?<br/>2A. Solo and focused<br/>2B. Alert and responsive<br/>2C. Creative and visual<br/>2D. Hands-on technical<br/>2E. Analytical and structured<br/><br/>Please answer with: 2A–2E
+  </template>
+</category>
+
+<category>
+  <pattern>1C</pattern>
+  <template>
+    <think>
+      <set name="game_score"><eval><get name="game_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="game_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="game_score"/></set>
+          <set name="max_career">game</set>
+        </li>
+      </condition>
+    </think>
+    Question 2: What's your preferred work style?<br/>2A. Solo and focused<br/>2B. Alert and responsive<br/>2C. Creative and visual<br/>2D. Hands-on technical<br/>2E. Analytical and structured<br/><br/>Please answer with: 2A–2E
+  </template>
+</category>
+
+<category>
+  <pattern>1D</pattern>
+  <template>
+    <think>
+      <set name="network_score"><eval><get name="network_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="network_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="network_score"/></set>
+          <set name="max_career">network</set>
+        </li>
+      </condition>
+    </think>
+    Question 2: What's your preferred work style?<br/>2A. Solo and focused<br/>2B. Alert and responsive<br/>2C. Creative and visual<br/>2D. Hands-on technical<br/>2E. Analytical and structured<br/><br/>Please answer with: 2A–2E
+  </template>
+</category>
+
+<category>
+  <pattern>1E</pattern>
+  <template>
+    <think>
+      <set name="data_score"><eval><get name="data_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="data_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="data_score"/></set>
+          <set name="max_career">data</set>
+        </li>
+      </condition>
+    </think>
+    Question 2: What's your preferred work style?<br/>2A. Solo and focused<br/>2B. Alert and responsive<br/>2C. Creative and visual<br/>2D. Hands-on technical<br/>2E. Analytical and structured<br/><br/>Please answer with: 2A–2E
+  </template>
+</category>
+
+<category>
+  <pattern>2A</pattern>
+  <template>
+    <think>
+      <set name="software_score"><eval><get name="software_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="software_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="software_score"/></set>
+          <set name="max_career">software</set>
+        </li>
+      </condition>
+    </think>
+    Question 3: Which task sounds most interesting?<br/>3A. Build an app<br/>3B. Secure a server<br/>3C. Design a video game<br/>3D. Configure a network<br/>3E. Analyze business data<br/><br/>Please answer with: 3A–3E
+  </template>
+</category>
+
+<category>
+  <pattern>2B</pattern>
+  <template>
+    <think>
+      <set name="security_score"><eval><get name="security_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="security_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="security_score"/></set>
+          <set name="max_career">security</set>
+        </li>
+      </condition>
+    </think>
+    Question 3: Which task sounds most interesting?<br/>3A. Build an app<br/>3B. Secure a server<br/>3C. Design a video game<br/>3D. Configure a network<br/>3E. Analyze business data<br/><br/>Please answer with: 3A–3E
+  </template>
+</category>
+
+<category>
+  <pattern>2C</pattern>
+  <template>
+    <think>
+      <set name="game_score"><eval><get name="game_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="game_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="game_score"/></set>
+          <set name="max_career">game</set>
+        </li>
+      </condition>
+    </think>
+    Question 3: Which task sounds most interesting?<br/>3A. Build an app<br/>3B. Secure a server<br/>3C. Design a video game<br/>3D. Configure a network<br/>3E. Analyze business data<br/><br/>Please answer with: 3A–3E
+  </template>
+</category>
+
+<category>
+  <pattern>2D</pattern>
+  <template>
+    <think>
+      <set name="network_score"><eval><get name="network_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="network_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="network_score"/></set>
+          <set name="max_career">network</set>
+        </li>
+      </condition>
+    </think>
+    Question 3: Which task sounds most interesting?<br/>3A. Build an app<br/>3B. Secure a server<br/>3C. Design a video game<br/>3D. Configure a network<br/>3E. Analyze business data<br/><br/>Please answer with: 3A–3E
+  </template>
+</category>
+
+<category>
+  <pattern>2E</pattern>
+  <template>
+    <think>
+      <set name="data_score"><eval><get name="data_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="data_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="data_score"/></set>
+          <set name="max_career">data</set>
+        </li>
+      </condition>
+    </think>
+    Question 3: Which task sounds most interesting?<br/>3A. Build an app<br/>3B. Secure a server<br/>3C. Design a video game<br/>3D. Configure a network<br/>3E. Analyze business data<br/><br/>Please answer with: 3A–3E
+  </template>
+</category>
+
+<category>
+  <pattern>3A</pattern>
+  <template>
+    <think>
+      <set name="software_score"><eval><get name="software_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="software_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="software_score"/></set>
+          <set name="max_career">software</set>
+        </li>
+      </condition>
+    </think>
+    Question 4: Which of these excites you most?<br/>4A. Debugging code<br/>4B. Detecting threats<br/>4C. Animating a scene<br/>4D. Troubleshooting routers<br/>4E. Finding trends in spreadsheets<br/><br/>Please answer with: 4A–4E
+  </template>
+</category>
+
+<category>
+  <pattern>3B</pattern>
+  <template>
+    <think>
+      <set name="security_score"><eval><get name="security_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="security_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="security_score"/></set>
+          <set name="max_career">security</set>
+        </li>
+      </condition>
+    </think>
+    Question 4: Which of these excites you most?<br/>4A. Debugging code<br/>4B. Detecting threats<br/>4C. Animating a scene<br/>4D. Troubleshooting routers<br/>4E. Finding trends in spreadsheets<br/><br/>Please answer with: 4A–4E
+  </template>
+</category>
+
+<category>
+  <pattern>3C</pattern>
+  <template>
+    <think>
+      <set name="game_score"><eval><get name="game_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="game_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="game_score"/></set>
+          <set name="max_career">game</set>
+        </li>
+      </condition>
+    </think>
+    Question 4: Which of these excites you most?<br/>4A. Debugging code<br/>4B. Detecting threats<br/>4C. Animating a scene<br/>4D. Troubleshooting routers<br/>4E. Finding trends in spreadsheets<br/><br/>Please answer with: 4A–4E
+  </template>
+</category>
+
+<category>
+  <pattern>3D</pattern>
+  <template>
+    <think>
+      <set name="network_score"><eval><get name="network_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="network_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="network_score"/></set>
+          <set name="max_career">network</set>
+        </li>
+      </condition>
+    </think>
+    Question 4: Which of these excites you most?<br/>4A. Debugging code<br/>4B. Detecting threats<br/>4C. Animating a scene<br/>4D. Troubleshooting routers<br/>4E. Finding trends in spreadsheets<br/><br/>Please answer with: 4A–4E
+  </template>
+</category>
+
+<category>
+  <pattern>3E</pattern>
+  <template>
+    <think>
+      <set name="data_score"><eval><get name="data_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="data_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="data_score"/></set>
+          <set name="max_career">data</set>
+        </li>
+      </condition>
+    </think>
+    Question 4: Which of these excites you most?<br/>4A. Debugging code<br/>4B. Detecting threats<br/>4C. Animating a scene<br/>4D. Troubleshooting routers<br/>4E. Finding trends in spreadsheets<br/><br/>Please answer with: 4A–4E
+  </template>
+</category>
+
+<category>
+  <pattern>4A</pattern>
+  <template>
+    <think>
+      <set name="software_score"><eval><get name="software_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="software_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="software_score"/></set>
+          <set name="max_career">software</set>
+        </li>
+      </condition>
+    </think>
+    Question 5: Which best describes how you solve problems?<br/>5A. By building a structured solution<br/>5B. By anticipating risks and acting fast<br/>5C. By imagining new and playful concepts<br/>5D. By methodically testing setups<br/>5E. By comparing patterns and insights<br/><br/>Please answer with: 5A–5E
+  </template>
+</category>
+
+<category>
+  <pattern>4B</pattern>
+  <template>
+    <think>
+      <set name="security_score"><eval><get name="security_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="security_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="security_score"/></set>
+          <set name="max_career">security</set>
+        </li>
+      </condition>
+    </think>
+    Question 5: Which best describes how you solve problems?<br/>5A. By building a structured solution<br/>5B. By anticipating risks and acting fast<br/>5C. By imagining new and playful concepts<br/>5D. By methodically testing setups<br/>5E. By comparing patterns and insights<br/><br/>Please answer with: 5A–5E
+  </template>
+</category>
+
+<category>
+  <pattern>4C</pattern>
+  <template>
+    <think>
+      <set name="game_score"><eval><get name="game_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="game_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="game_score"/></set>
+          <set name="max_career">game</set>
+        </li>
+      </condition>
+    </think>
+    Question 5: Which best describes how you solve problems?<br/>5A. By building a structured solution<br/>5B. By anticipating risks and acting fast<br/>5C. By imagining new and playful concepts<br/>5D. By methodically testing setups<br/>5E. By comparing patterns and insights<br/><br/>Please answer with: 5A–5E
+  </template>
+</category>
+
+<category>
+  <pattern>4D</pattern>
+  <template>
+    <think>
+      <set name="network_score"><eval><get name="network_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="network_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="network_score"/></set>
+          <set name="max_career">network</set>
+        </li>
+      </condition>
+    </think>
+    Question 5: Which best describes how you solve problems?<br/>5A. By building a structured solution<br/>5B. By anticipating risks and acting fast<br/>5C. By imagining new and playful concepts<br/>5D. By methodically testing setups<br/>5E. By comparing patterns and insights<br/><br/>Please answer with: 5A–5E
+  </template>
+</category>
+
+<category>
+  <pattern>4E</pattern>
+  <template>
+    <think>
+      <set name="data_score"><eval><get name="data_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="data_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="data_score"/></set>
+          <set name="max_career">data</set>
+        </li>
+      </condition>
+    </think>
+    Question 5: Which best describes how you solve problems?<br/>5A. By building a structured solution<br/>5B. By anticipating risks and acting fast<br/>5C. By imagining new and playful concepts<br/>5D. By methodically testing setups<br/>5E. By comparing patterns and insights<br/><br/>Please answer with: 5A–5E
+  </template>
+</category>
+
+<category>
+  <pattern>5A</pattern>
+  <template>
+    <think>
+      <set name="software_score"><eval><get name="software_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="software_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="software_score"/></set>
+          <set name="max_career">software</set>
+        </li>
+      </condition>
+    </think>
+    Thanks for completing the quiz! Type <b>career</b> to see your best match.
+  </template>
+</category>
+
+<category>
+  <pattern>5B</pattern>
+  <template>
+    <think>
+      <set name="security_score"><eval><get name="security_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="security_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="security_score"/></set>
+          <set name="max_career">security</set>
+        </li>
+      </condition>
+    </think>
+    Thanks for completing the quiz! Type <b>career</b> to see your best match.
+  </template>
+</category>
+
+<category>
+  <pattern>5C</pattern>
+  <template>
+    <think>
+      <set name="game_score"><eval><get name="game_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="game_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="game_score"/></set>
+          <set name="max_career">game</set>
+        </li>
+      </condition>
+    </think>
+    Thanks for completing the quiz! Type <b>career</b> to see your best match.
+  </template>
+</category>
+
+<category>
+  <pattern>5D</pattern>
+  <template>
+    <think>
+      <set name="network_score"><eval><get name="network_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="network_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="network_score"/></set>
+          <set name="max_career">network</set>
+        </li>
+      </condition>
+    </think>
+    Thanks for completing the quiz! Type <b>career</b> to see your best match.
+  </template>
+</category>
+
+<category>
+  <pattern>5E</pattern>
+  <template>
+    <think>
+      <set name="data_score"><eval><get name="data_score"/> + 1</eval></set>
+      <condition>
+        <li><get name="data_score"/> > <get name="top_score"/>
+          <set name="top_score"><get name="data_score"/></set>
+          <set name="max_career">data</set>
+        </li>
+      </condition>
+    </think>
+    Thanks for completing the quiz! Type <b>career</b> to see your best match.
+  </template>
+</category>
+
+<category>
+  <pattern>CAREER</pattern>
+  <template>
+    You scored:<br/>
+    Software Developer: <get name="software_score"/><br/>
+    Cybersecurity Analyst: <get name="security_score"/><br/>
+    Game Developer: <get name="game_score"/><br/>
+    Network Administrator: <get name="network_score"/><br/>
+    Data Analyst: <get name="data_score"/><br/><br/>
+
+    Great match! Based on your answers, you may thrive as a:<br/>
+    <condition>
+      <li><get name="software_score"/> >= <get name="security_score"/>
+        <condition>
+          <li><get name="software_score"/> >= <get name="game_score"/>
+            <condition>
+              <li><get name="software_score"/> >= <get name="network_score"/>
+                <condition>
+                  <li><get name="software_score"/> >= <get name="data_score"/>
+                    Software Developer<br/><a href="https://www.google.com/search?q=Software+Developer">Learn more</a>
+                  </li>
+                  <li>Data Analyst<br/><a href="https://www.google.com/search?q=Data+Analyst">Learn more</a></li>
+                </condition>
+              </li>
+              <li>Network Administrator<br/><a href="https://www.google.com/search?q=Network+Administrator">Learn more</a></li>
+            </condition>
+          </li>
+          <li>Game Developer<br/><a href="https://www.google.com/search?q=Game+Developer">Learn more</a></li>
+        </condition>
+      </li>
+      <li><get name="security_score"/> >= <get name="game_score"/>
+        <condition>
+          <li><get name="security_score"/> >= <get name="network_score"/>
+            <condition>
+              <li><get name="security_score"/> >= <get name="data_score"/>
+                Cybersecurity Analyst<br/><a href="https://www.google.com/search?q=Cybersecurity+Analyst">Learn more</a>
+              </li>
+              <li>Data Analyst<br/><a href="https://www.google.com/search?q=Data+Analyst">Learn more</a></li>
+            </condition>
+          </li>
+          <li>Network Administrator<br/><a href="https://www.google.com/search?q=Network+Administrator">Learn more</a></li>
+        </condition>
+      </li>
+      <li><get name="game_score"/> >= <get name="network_score"/>
+        <condition>
+          <li><get name="game_score"/> >= <get name="data_score"/>
+            Game Developer<br/><a href="https://www.google.com/search?q=Game+Developer">Learn more</a>
+          </li>
+          <li>Data Analyst<br/><a href="https://www.google.com/search?q=Data+Analyst">Learn more</a></li>
+        </condition>
+      </li>
+      <li><get name="network_score"/> >= <get name="data_score"/>
+        Network Administrator<br/><a href="https://www.google.com/search?q=Network+Administrator">Learn more</a>
+      </li>
+      <li>Data Analyst<br/><a href="https://www.google.com/search?q=Data+Analyst">Learn more</a></li>
+    </condition>
+  </template>
+</category>
+
 
 </aiml>
 
