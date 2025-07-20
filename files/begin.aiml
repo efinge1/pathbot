@@ -1,100 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+<!-- Start the quiz -->
 <category>
   <pattern>START</pattern>
   <template>
     Welcome to PathBot, your career guide!<br/>
     Question 1: What kind of activity do you enjoy most?<br/>
-    A. Solving technical puzzles<br/>
-    B. Preventing or detecting problems<br/>
-    C. Creating visual experiences or games<br/>
-    D. Working with devices and infrastructure<br/>
-    E. Spotting patterns in data<br/>
-    <think><set name="q">1</set></think>
-    <br/>Please answer with: A, B, C, D, or E
+    1A. Solving technical puzzles<br/>
+    1B. Preventing or detecting problems<br/>
+    1C. Creating visual experiences or games<br/>
+    1D. Working with devices and infrastructure<br/>
+    1E. Spotting patterns in data<br/>
+    <br/>Please answer with: 1A, 1B, 1C, 1D, or 1E
   </template>
 </category>
 
-<!-- Question 1 Answers -->
-<category><pattern>A</pattern><that>*Question 1*</that>
-<template><think><set name="career">software</set><set name="q">2</set></think>
-Question 2: What excites you the most?<br/>
-A. Building apps or tools<br/>
-B. Defending systems<br/>
-C. Designing game levels<br/>
-D. Setting up networks<br/>
-E. Analyzing trends
-</template></category>
-
-<category><pattern>B</pattern><that>*Question 1*</that>
-<template><think><set name="career">security</set><set name="q">2</set></think>
-Question 2: What excites you the most?<br/>
-A. Building apps or tools<br/>
-B. Defending systems<br/>
-C. Designing game levels<br/>
-D. Setting up networks<br/>
-E. Analyzing trends
-</template></category>
-
-<category><pattern>C</pattern><that>*Question 1*</that>
-<template><think><set name="career">game</set><set name="q">2</set></think>
-Question 2: What excites you the most?<br/>
-A. Building apps or tools<br/>
-B. Defending systems<br/>
-C. Designing game levels<br/>
-D. Setting up networks<br/>
-E. Analyzing trends
-</template></category>
-
-<category><pattern>D</pattern><that>*Question 1*</that>
-<template><think><set name="career">network</set><set name="q">2</set></think>
-Question 2: What excites you the most?<br/>
-A. Building apps or tools<br/>
-B. Defending systems<br/>
-C. Designing game levels<br/>
-D. Setting up networks<br/>
-E. Analyzing trends
-</template></category>
-
-<category><pattern>E</pattern><that>*Question 1*</that>
-<template><think><set name="career">data</set><set name="q">2</set></think>
-Question 2: What excites you the most?<br/>
-A. Building apps or tools<br/>
-B. Defending systems<br/>
-C. Designing game levels<br/>
-D. Setting up networks<br/>
-E. Analyzing trends
-</template></category>
-
-<!-- Second question answers just confirm choice -->
-<category><pattern>A</pattern><that>*Question 2*</that>
-<template>Thanks for your answers! Type <b>career</b> to see your recommended path.</template>
-</category>
-<category><pattern>B</pattern><that>*Question 2*</that>
-<template>Thanks for your answers! Type <b>career</b> to see your recommended path.</template>
-</category>
-<category><pattern>C</pattern><that>*Question 2*</that>
-<template>Thanks for your answers! Type <b>career</b> to see your recommended path.</template>
-</category>
-<category><pattern>D</pattern><that>*Question 2*</that>
-<template>Thanks for your answers! Type <b>career</b> to see your recommended path.</template>
-</category>
-<category><pattern>E</pattern><that>*Question 2*</that>
-<template>Thanks for your answers! Type <b>career</b> to see your recommended path.</template>
+<category>
+  <pattern>1A</pattern>
+  <template>
+    Question 2: What excites you the most?<br/>
+    2A. Building apps or tools<br/>
+    2B. Defending systems<br/>
+    2C. Designing game levels<br/>
+    2D. Setting up networks<br/>
+    2E. Analyzing trends<br/>
+    <think><set name="career">software</set></think>
+    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+  </template>
 </category>
 
-<!-- Career route -->
-<category><pattern>CAREER</pattern>
-<template>
-<condition name="career">
-  <li value="software"><srai>SOFTWARE DEVELOPER</srai></li>
-  <li value="security"><srai>CYBERSECURITY ANALYST</srai></li>
-  <li value="game"><srai>GAME DEVELOPER</srai></li>
-  <li value="network"><srai>NETWORK ADMINISTRATOR</srai></li>
-  <li value="data"><srai>DATA ANALYST</srai></li>
-</condition>
-</template>
+<category>
+  <pattern>1B</pattern>
+  <template>
+    Question 2: What excites you the most?<br/>
+    2A. Building apps or tools<br/>
+    2B. Defending systems<br/>
+    2C. Designing game levels<br/>
+    2D. Setting up networks<br/>
+    2E. Analyzing trends<br/>
+    <think><set name="career">security</set></think>
+    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+  </template>
+</category>
+
+<category>
+  <pattern>1C</pattern>
+  <template>
+    Question 2: What excites you the most?<br/>
+    2A. Building apps or tools<br/>
+    2B. Defending systems<br/>
+    2C. Designing game levels<br/>
+    2D. Setting up networks<br/>
+    2E. Analyzing trends<br/>
+    <think><set name="career">game</set></think>
+    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+  </template>
+</category>
+
+<category>
+  <pattern>1D</pattern>
+  <template>
+    Question 2: What excites you the most?<br/>
+    2A. Building apps or tools<br/>
+    2B. Defending systems<br/>
+    2C. Designing game levels<br/>
+    2D. Setting up networks<br/>
+    2E. Analyzing trends<br/>
+    <think><set name="career">network</set></think>
+    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+  </template>
+</category>
+
+<category>
+  <pattern>1E</pattern>
+  <template>
+    Question 2: What excites you the most?<br/>
+    2A. Building apps or tools<br/>
+    2B. Defending systems<br/>
+    2C. Designing game levels<br/>
+    2D. Setting up networks<br/>
+    2E. Analyzing trends<br/>
+    <think><set name="career">data</set></think>
+    <br/>Please answer with: 2A, 2B, 2C, 2D, or 2E
+  </template>
+</category>
+
+<category>
+  <pattern>2A</pattern>
+  <template>
+    Thanks for your answers! Type <b>career</b> to see your recommended path.
+  </template>
+</category>
+
+<category>
+  <pattern>2B</pattern>
+  <template>
+    Thanks for your answers! Type <b>career</b> to see your recommended path.
+  </template>
+</category>
+
+<category>
+  <pattern>2C</pattern>
+  <template>
+    Thanks for your answers! Type <b>career</b> to see your recommended path.
+  </template>
+</category>
+
+<category>
+  <pattern>2D</pattern>
+  <template>
+    Thanks for your answers! Type <b>career</b> to see your recommended path.
+  </template>
+</category>
+
+<category>
+  <pattern>2E</pattern>
+  <template>
+    Thanks for your answers! Type <b>career</b> to see your recommended path.
+  </template>
+</category>
+
+<category>
+  <pattern>CAREER</pattern>
+  <template>
+    <condition name="career">
+      <li value="software"><srai>SOFTWARE DEVELOPER</srai></li>
+      <li value="security"><srai>CYBERSECURITY ANALYST</srai></li>
+      <li value="game"><srai>GAME DEVELOPER</srai></li>
+      <li value="network"><srai>NETWORK ADMINISTRATOR</srai></li>
+      <li value="data"><srai>DATA ANALYST</srai></li>
+    </condition>
+  </template>
 </category>
 
 </aiml>
+
