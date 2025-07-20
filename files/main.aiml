@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-<aiml version="2.0">
+
 
   <!-- START: Initialize and Begin Personality Quiz -->
   <category>
@@ -556,5 +556,6 @@
     </template>
   </category>
 
+</aiml>
 
   <!-- RESULTS evaluation based on highest trait score -->
