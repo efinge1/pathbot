@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+  <pattern>SOFTWARE DEVELOPER</pattern>
+  <template>
+    Great match! You may thrive as a <b>Software Developer</b>.<br/>
+    <br/>Learn more: https://www.google.com/search?q=Software+Developer
+  </template>
+</category>
+
+</aiml>

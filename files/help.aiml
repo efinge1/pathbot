@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<category>
+  <pattern>HELP</pattern>
+  <template>
+    Type START to begin the quiz. Respond A–E to answer each question.
+  </template>
+</category>
+</aiml>
